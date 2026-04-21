@@ -551,6 +551,7 @@ function renderNotificationButton() {
 }
 
 function notifyTaskFinished(status) {
+  vibrateOnTaskFinished(status);
   if (!supportsNotifications() || Notification.permission !== 'granted' || !state.notificationsEnabled) return;
   const thread = state.currentThread;
   const title = status === 'completed' ? 'Devin finished a task' : 'Devin task failed';
@@ -562,6 +563,13 @@ function notifyTaskFinished(status) {
 
 function supportsNotifications() {
   return typeof Notification !== 'undefined';
+}
+
+function vibrateOnTaskFinished(status) {
+  if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return;
+  try {
+    navigator.vibrate(status === 'completed' ? [120, 60, 120] : [220, 80, 220]);
+  } catch {}
 }
 
 function persistSelectedThread() {
