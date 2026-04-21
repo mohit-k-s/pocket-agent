@@ -1,6 +1,6 @@
 {
-  "name": "Devin from iPhone",
-  "short_name": "Devin Phone",
+  "name": "pocket-agent",
+  "short_name": "PocketAgent",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#020617",

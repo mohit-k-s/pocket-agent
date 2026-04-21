@@ -1,1 +1,0 @@
-I want to make an app to communicate to my local mac for it to run tasks using devin , basically chat on iphone and still work on my own machine not devin cloud 

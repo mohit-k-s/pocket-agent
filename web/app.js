@@ -471,6 +471,7 @@ function humanizeError(result) {
     unauthorized: 'Pair this device again.',
     rate_limited: 'Too many requests. Try again in a moment.',
     thread_busy: 'This thread already has a running task.',
+    workspace_already_assigned: 'That workspace already belongs to another active thread.',
     runner_user_required: 'Runner user is required for runner mode.',
     runner_user_invalid: 'Runner user name is invalid.',
     runner_user_not_allowed: 'That runner user is not allowed by server config.',

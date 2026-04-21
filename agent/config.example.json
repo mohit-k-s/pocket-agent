@@ -4,19 +4,17 @@
   "pairingCodeTtlSeconds": 300,
   "tokenTtlDays": 30,
   "workspaceAllowlist": [
-    "/Users/mohit/Claude/fun-project/devin-from-iphone"
+    "/absolute/path/to/allowed/workspace"
   ],
   "allowedOrigins": [
     "http://localhost:8787"
   ],
-  "devinBinary": "/Users/mohit/.local/bin/devin",
+  "devinBinary": "devin",
   "devinPermissionMode": "normal",
   "sudoBinary": "/usr/bin/sudo",
-  "runnerUsers": [
-    "devinrunner"
-  ],
+  "runnerUsers": [],
   "defaultExecutionMode": "direct",
-  "defaultRunnerUser": "devinrunner",
+  "defaultRunnerUser": "",
   "rateLimits": {
     "pairStartPerMinute": 10,
     "pairCompletePerMinute": 20,

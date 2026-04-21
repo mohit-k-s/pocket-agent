@@ -6,8 +6,8 @@
 
 ## Config
 - Copy `agent/config.example.json` to `agent/config.json` to customize host, port, allowlist, origin allowlist, and Devin binary path.
-- Pair-code generation endpoint is loopback-only; generate codes from the Mac itself at `http://localhost:8787`.
-- iPhone should use the same server over LAN, e.g. `http://<mac-lan-ip>:8787`.
+- Pair-code generation endpoint is loopback-only; generate codes from the host machine itself at `http://localhost:8787`.
+- Any phone should use the same server over LAN, e.g. `http://<host-lan-ip>:8787`.
 
 ## Verification
 - Syntax check: `node --check agent/server.mjs && node --check web/app.js`
@@ -15,14 +15,16 @@
 - Security check: POST with a bad `Origin` should return `403 origin_not_allowed`.
 
 ## Current architecture
-- `agent/server.mjs`: local HTTP server, pairing/auth, threads, tasks, SSE, SQLite persistence
+- `agent/server.mjs`: local HTTP server, pairing/auth, threads, one-shot task execution, SSE, SQLite persistence
 - `web/`: mobile-first thread-based UI served by the agent
 - `data/app.sqlite`: pairing, token, thread, task, and audit persistence
 
 ## Current UX model
-- One thread maps to one workspace folder
+- One active thread maps to one workspace folder; duplicate active threads for the same workspace are rejected
 - Each thread contains a series of Devin tasks/prompts
 - Only one queued/running task is allowed per thread at a time
+- Tasks use one-shot Devin invocations and stream stdout/stderr chunks when available
+- Follow-up tasks reuse the previous Devin session in that workspace via `devin --continue -p ...`
 - Each thread can run in either `direct` mode or `runner_user` mode
 
 ## Runner-user mode
