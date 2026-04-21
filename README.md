@@ -8,6 +8,8 @@ Today it is built around a local machine running Devin for Terminal, with:
 - LAN-only pairing and auth
 - thread-per-workspace task management
 
+![pocket-agent demo](./demo.jpeg)
+
 ## What it does
 
 - Pair a phone browser with a machine on your LAN
